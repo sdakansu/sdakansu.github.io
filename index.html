@@ -53,6 +53,23 @@
             width: 90%; /* Adjust as needed */
             height: auto;
         }
+
+        .container {
+            display: flex;
+            align-items: center;
+        }
+        .text-block {
+            flex: 1;
+            margin-right: 20px;
+        }
+        .image-container {
+            flex: 1;
+            overflow: hidden; /* Ensure the image doesn't overflow */
+        }
+        .image-container img {
+            width: 100%; /* Make the image fill its container */
+            height: auto; /* Let the height adjust proportionally */
+        }
     </style>
 </head>
 <body>
@@ -122,10 +139,15 @@
             </div>
         </div>
         <h2>Computer Science Projects</h2>
-        <div class="project1">
-            <h3>AKIS - Deep Learning Transcription Tool for Ottoman Writings</h3>
-            <p>We propose an automatic recognition system for printed Ottoman documents which transcribes Ottoman texts directly to the modern Turkish script. We evaluated three decoding strategies including the Word Beam Search decoder that allows to use a recognition lexicon and n-gram statistics during the decoding phase. The system achieves 2.25% character error rate and 6.42% word error rate on a test set of 1.4K samples, using the test set transcriptions as the recogni- tion lexicon. Using a general purpose, large lexicon of the Ottoman era (260K words and 77% test coverage), the performance is measured as 3.68% character error rate and 16.61% word error rate.</p>
-            <p>View <a href="https://dhlab.sabanciuniv.edu/en/akis-osmanlica-transkripsiyon-araci" target="_blank">project website</a>, <a href="https://dh-ottoman.univie.ac.at/fileadmin/user_upload/k_dh_ottoman/DH-Akis.pdf" target="_blank">poster</a> and <a href="https://assets.researchsquare.com/files/rs-2273629/v1_covered.pdf?c=1679310899" target="_blank">prepublished paper</a> </p>
+        <div class="container">
+            <div class="text-block">
+                <h3>AKIS - Deep Learning Transcription Tool for Ottoman Writings</h3>
+                <p>We propose an automatic recognition system for printed Ottoman documents which transcribes Ottoman texts directly to the modern Turkish script. We evaluated three decoding strategies including the Word Beam Search decoder that allows to use a recognition lexicon and n-gram statistics during the decoding phase. The system achieves 2.25% character error rate and 6.42% word error rate on a test set of 1.4K samples, using the test set transcriptions as the recogni- tion lexicon. Using a general purpose, large lexicon of the Ottoman era (260K words and 77% test coverage), the performance is measured as 3.68% character error rate and 16.61% word error rate.</p>
+                <p>View <a href="https://dhlab.sabanciuniv.edu/en/akis-osmanlica-transkripsiyon-araci" target="_blank">project website</a>, <a href="https://dh-ottoman.univie.ac.at/fileadmin/user_upload/k_dh_ottoman/DH-Akis.pdf" target="_blank">poster</a> and <a href="https://assets.researchsquare.com/files/rs-2273629/v1_covered.pdf?c=1679310899" target="_blank">prepublished paper</a> </p>
+            </div>
+            <div class="image-container" id="image-container">
+                <img src="prepublished_paper.png" alt="Prepublished" id="dynamic-image">
+            </div>
         </div>
         <!-- Add more projects... -->
         <h2>Undergrad Projects and Poster Presentations</h2>
