@@ -11,8 +11,8 @@
             padding: 0;
         }
         header {
-            background-color: #007BFF;
-            color: #FFFFFF;
+            /*background-color: #000000;*/
+            /*color: #FFFFFF;*/
             text-align: center;
             padding: 1rem;
         }
@@ -24,6 +24,7 @@
         }
         h2 {
             margin-top: 0;
+            text-decoration: underline;
         }
 
         /* New styles for project content and image */
@@ -31,7 +32,7 @@
             display: flex;
             flex-direction: row;
             align-items: center;
-            margin-bottom: 20px; /* Adjust as needed */
+            margin: 20px; /* Adjust as needed */
         }
 
         .project .content {
@@ -41,11 +42,13 @@
         .project .image {
             flex: 1;
             margin-left: 20px; /* Adjust as needed */
+            justify-content: center;
         }
 
         .project img {
             max-width: 100%;
             height: auto;
+            justify-content: center;
         }
 
         /* Styles for the specific image */
@@ -58,17 +61,24 @@
             display: flex;
             align-items: center;
         }
+
         .text-block {
-            flex: 1;
-            margin-right: 20px;
+            flex: 1.5;
+            /*margin-right: 20px;*/
         }
         .image-container {
             flex: 1;
             overflow: hidden; /* Ensure the image doesn't overflow */
         }
+
         .image-container img {
-            width: 100%; /* Make the image fill its container */
+            width: 80%; /* Make the image fill its container */
             height: auto; /* Let the height adjust proportionally */
+        }
+
+        /* Define the height of the vertical space */
+        .vertical-space {
+            height: 40px; /* Adjust the height as needed */
         }
     </style>
 </head>
@@ -78,7 +88,8 @@
     </header>
    <section>
         <h2>About Me</h2>
-        <p>Hello! I am an Economics and Finance master's student in Eberhard Karls University of Tübingen. I have bachelor's degree in Computer Science and Engineering and Business Management (doule major) with Finance Minor.</p>
+
+        <p>With a passion for both economics and computer science, I am a motivated and versatile professional specializing in finance, artificial intelligence, and data analysis. Currently pursuing a Master's Degree in Economics and Finance at Eberhard Karls University of Tübingen, I hold a Bachelor of Science in Computer Science and a Bachelor of Arts in Management with a Minor in Finance from Sabanci University, Istanbul. Throughout my academic journey, I've had the privilege of being recognized for academic excellence, earning a place on the Dean's High Honor List multiple times. Currently, I am also contributing as a research assistant, furthering my passion for academic inquiry and discovery. My research interests lie at the intersection of finance and technology, with projects ranging from valuing companies using advanced financial models to financial economics with the help of my knowledge in computer science. </p>
     </section>
     <section>
         <h2>Recent Projects</h2>
@@ -93,6 +104,10 @@
             </div>
         </div>
 
+        <p>The valuation of Volkswagen Group through discounted cash flow (DCF) methods, including Adjusted Present Value (APV) and Weighted Average Cost of Capital (WACC), is detailed in this study. It encompasses a three-year short-term forecast and a medium-term outlook, utilizing financial data from the past decade. The APV approach considers Free Cash Flow (FCF) and tax shields discounted separately, resulting in a total company value of €164.05 billion, despite a discrepancy in total equity due to predetermined book values of debt. Conversely, WACC-based valuation yields a total value of €145.316 billion, with an alternative WACC accounting for default probability resulting in a slightly lower valuation. Comparative analysis reveals surprising outcomes, where APV valuation exceeds WACC valuation due to substantial total debt relative to present company value, indicating the need for debt ratio adjustments. Sensitivity analyses explore the impact of parameters such as debt ratio, tax rates, and growth rates on firm value, revealing significant fluctuations. Real option analysis suggests that waiting for VW yields a superior strategy, as it aligns with the firm's current market capitalization. Notably, the study sheds light on Volkswagen's challenges post the NOx emission scandal and applies Merton Model for further financial analysis. Additionally, it provides insights into the company's tax rates and sensitivity to various parameters, essential for comprehensive financial modeling and decision-making.</p>
+
+        <div class="vertical-space"></div>
+
         <h3>Proximity Penalty of COVID-19 "Outbreak" on Stock Markets</h3>
         <div class="project1">
             <div class="image">
@@ -103,16 +118,22 @@
                 <p>View <a href="seminar_paper.pdf" target="_blank">project report</a> and <a href="Regression.nb.html" target="_blank">project codes</a>.</p>
             </div>
         </div>
+
+        <div class="vertical-space"></div>
+
         <div class="project1">
             <h3>Valuation of Express Certificate on Royal Dutch Shell Company</h3>
             <div class="image">
                 <img src="certificate_monte_carlo.png" alt="Express Certificate Valuation - Monte Carlo">
             </div>
             <div class="content">
-                <p>I performed valuation of an express certificate on Royal Dutch Shell Company, issued by Deutsche Bank.</p>
+                <p>The valuation of an express certificate on Royal Dutch Shell Company involved Monte Carlo Simulation and Portfolio Insurance strategies. Using Geometric Brownian Motion with 65,536 observations, probable pricing paths of the underlying were simulated, resulting in an estimated certificate price of €112.49. Figures depicted the estimated prices of the certificate, historic prices of the underlying stock, and the comparison between actual and estimated prices. Sensitivity and stress scenario analyses were conducted to measure the effectiveness of put option fractions in portfolios, revealing significant average estimated returns under different conditions. Risk management strategies, such as including put options in portfolios, were explored to manage tail risk. Additionally, the Nelson-Siegel-Svennson method was employed to estimate the risk-free rate, and various derivative pricing methods were applied to analyze delta, gamma, and vega. The study provided insights into product characteristics, early termination scenarios, and risk management practices in the context of financial derivatives.</p>
                 <p>View <a href="express_certificate_valuation_poster.pdf" target="_blank">project poster</a> and <a href="Regression.nb.html" target="_blank">code file</a></p>
             </div>
         </div>
+
+        <div class="vertical-space"></div>
+
         <h3>Empirical Asset Pricing Assignment 3</h3>
         <div class="project">
             <div class="image">
@@ -129,6 +150,9 @@
                 </ol>
             </div>
         </div>
+
+        <div class="vertical-space"></div>
+
         <div class = "project">
             <div class = "content">
                 <p>Next is an assessment of how well each method fits the data, including computing the correlation between the Stochastic Discount Factor (SDF) of each method and the consumption growth. Different approaches include plotting model-implied mean returns against the market returns and conducting hypothesis testing for the most conventional values for β = 1 and γ = 10, and commenting on the spread range of the confidence interval, especially for γ.</p>
@@ -138,10 +162,13 @@
                 <img src="SDF_and_consumption_growth.png" alt="SDF and Consumption Growth">
             </div>
         </div>
+
+        <div class="vertical-space"></div>
+
         <h2>Computer Science Projects</h2>
+        <h3>AKIS - Deep Learning Transcription Tool for Ottoman Writings</h3>
         <div class="container">
             <div class="text-block">
-                <h3>AKIS - Deep Learning Transcription Tool for Ottoman Writings</h3>
                 <p>We propose an automatic recognition system for printed Ottoman documents which transcribes Ottoman texts directly to the modern Turkish script. We evaluated three decoding strategies including the Word Beam Search decoder that allows to use a recognition lexicon and n-gram statistics during the decoding phase. The system achieves 2.25% character error rate and 6.42% word error rate on a test set of 1.4K samples, using the test set transcriptions as the recogni- tion lexicon. Using a general purpose, large lexicon of the Ottoman era (260K words and 77% test coverage), the performance is measured as 3.68% character error rate and 16.61% word error rate.</p>
                 <p>View <a href="https://dhlab.sabanciuniv.edu/en/akis-osmanlica-transkripsiyon-araci" target="_blank">project website</a>, <a href="https://dh-ottoman.univie.ac.at/fileadmin/user_upload/k_dh_ottoman/DH-Akis.pdf" target="_blank">poster</a> and <a href="https://assets.researchsquare.com/files/rs-2273629/v1_covered.pdf?c=1679310899" target="_blank">prepublished paper</a> </p>
             </div>
@@ -149,6 +176,9 @@
                 <img src="prepublished_paper.png" alt="Prepublished" id="dynamic-image">
             </div>
         </div>
+
+        <div class="vertical-space"></div>
+
         <!-- Add more projects... -->
         <h2>Undergrad Projects and Poster Presentations</h2>
 
