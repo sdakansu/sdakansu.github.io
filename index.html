@@ -1,224 +1,334 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Selami Doğan Akansu - Curriculum Vitae</title>
-    <style>
-        body {
-            font-family: Arial, serif;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            /*background-color: #000000;*/
-            /*color: #FFFFFF;*/
-            text-align: center;
-            padding: 1rem;
-        }
-        section {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 2rem;
-            border-top: 1px solid #CCCCCC;
-        }
-        h2 {
-            margin-top: 0;
-            text-decoration: underline;
-        }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Selami Doğan Akansu — Finance • Software • Research</title>
+  <meta name="description" content="Selami Doğan Akansu — finance researcher & software-minded economist. Asset pricing, data science, and applied ML projects." />
+  <meta name="color-scheme" content="light dark">
+  <style>
+    /* System-first theme; manual override via html[data-theme] */
+    :root {
+      /* LIGHT defaults */
+      --bg: #ffffff; --bg-soft: #f6f8fb; --text: #0b1220; --muted: #475569;
+      --brand: #0066cc; --accent: #0f9d58; --card: #ffffff; --border: #e5e7eb;
+      --shadow: 0 10px 30px rgba(2,6,23,.08);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0b0d10; --bg-soft: #12161b; --text: #e6e9ef; --muted: #9aa4b2;
+        --brand: #5cc8ff; --accent: #a6e3a1; --card: #0f1318; --border: #1f2730;
+        --shadow: 0 10px 30px rgba(0,0,0,.25);
+      }
+    }
+    html[data-theme="light"] {
+      --bg: #ffffff; --bg-soft: #f6f8fb; --text: #0b1220; --muted: #475569;
+      --brand: #0066cc; --accent: #0f9d58; --card: #ffffff; --border: #e5e7eb;
+      --shadow: 0 10px 30px rgba(2,6,23,.08);
+    }
+    html[data-theme="dark"] {
+      --bg: #0b0d10; --bg-soft: #12161b; --text: #e6e9ef; --muted: #9aa4b2;
+      --brand: #5cc8ff; --accent: #a6e3a1; --card: #0f1318; --border: #1f2730;
+      --shadow: 0 10px 30px rgba(0,0,0,.25);
+    }
 
-        /* New styles for project content and image */
-        .project {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            margin: 20px; /* Adjust as needed */
-        }
+    html, body { height: 100%; }
+    body {
+      margin: 0; font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--text); background: var(--bg);
+      color-scheme: light dark;
+    }
 
-        .project .content {
-            flex: 1;
-        }
+    /* universal image safety */
+    img { max-width: 100%; height: auto; display: block; }
 
-        .project .image {
-            flex: 1;
-            margin-left: 20px; /* Adjust as needed */
-            justify-content: center;
-        }
+    .container { width: min(1100px, 92%); margin-inline: auto; }
+    header.site { position: sticky; top: 0; z-index: 20; backdrop-filter: saturate(180%) blur(8px); border-bottom: 1px solid var(--border); background: color-mix(in oklab, var(--bg) 82%, transparent); }
+    .nav { display:flex; align-items:center; justify-content:space-between; padding: .9rem 0; }
+    .nav a { color: var(--text); text-decoration: none; font-weight: 600; }
+    .nav .links { display:flex; gap: 1rem; }
+    .btn { display:inline-flex; align-items:center; gap:.5rem; padding:.6rem 1rem; border-radius: .7rem; border:1px solid var(--border); background: var(--bg-soft); color:var(--text); text-decoration:none; box-shadow: var(--shadow); min-width: 9.5rem; justify-content:center; }
+    .btn.primary { background: linear-gradient(90deg, var(--brand), var(--accent)); color:#051018; border-color: transparent; font-weight:700; }
 
-        .project img {
-            max-width: 100%;
-            height: auto;
-            justify-content: center;
-        }
+    /* Hero */
+    .hero { display:grid; grid-template-columns: 1fr 1fr; gap: 2rem; padding: 3.2rem 0 1.6rem; align-items: center; }
+    .hero h1 { font-size: clamp(2rem, 2.6vw + 1rem, 3.2rem); line-height:1.2; margin: 0 0 .6rem; }
+    .subtitle { color: var(--muted); margin: 0 0 1.2rem; }
+    .pill { display:inline-block; padding:.25rem .6rem; border:1px solid var(--border); border-radius: 999px; font-size:.85rem; color: var(--muted); margin-right:.5rem }
+    .hero-cta { display:flex; gap:.75rem; flex-wrap: wrap; }
+    .hero-img { border-radius: 1rem; overflow: hidden; border:1px solid var(--border); background: var(--card); aspect-ratio: 4 / 3; width: 100%; max-width: 420px; justify-self: end; }
+    .hero-img img { width:100%; height:100%; object-fit: contain; }
 
-        /* Styles for the specific image */
-        .project1 .image img {
-            width: 90%; /* Adjust as needed */
-            height: auto;
-        }
+    /* Sections */
+    section { padding: 2.2rem 0; }
+    section h2 { font-size: 1.6rem; margin: 0 0 1rem; letter-spacing:.2px }
+    p { margin: 0 0 .85rem; }
+    .muted { color: var(--muted); }
 
-        .container {
-            display: flex;
-            align-items: center;
-        }
+    /* Projects */
+    .grid { display:grid; grid-template-columns: repeat(12, 1fr); gap: 1rem; align-items: stretch; }
+    .card { grid-column: span 6; background: var(--card); border:1px solid var(--border); border-radius: 1rem; overflow:hidden; box-shadow: var(--shadow); display:flex; flex-direction:column; height:100%; transition: transform .12s ease, box-shadow .12s ease; }
+    .card:hover { transform: translateY(-2px); box-shadow: 0 14px 36px rgba(0,0,0,.18); }
+    .card img { width: 100%; aspect-ratio: 16 / 9; height: auto; object-fit: cover; background: var(--bg-soft); }
+    .card .pad { padding: 1rem; display:flex; flex-direction:column; flex:1; }
 
-        .text-block {
-            flex: 1.5;
-            /*margin-right: 20px;*/
-        }
-        .image-container {
-            flex: 1;
-            overflow: hidden; /* Ensure the image doesn't overflow */
-        }
+    /* Two-col sections */
+    .two { display:grid; grid-template-columns: 1fr 1fr; gap:1.2rem; align-items: start; }
 
-        .image-container img {
-            width: 80%; /* Make the image fill its container */
-            height: auto; /* Let the height adjust proportionally */
-        }
+    /* Footer */
+    footer { border-top: 1px solid var(--border); padding: 2rem 0; color: var(--muted); text-align:center }
 
-        /* Define the height of the vertical space */
-        .vertical-space {
-            height: 40px; /* Adjust the height as needed */
-        }
-    </style>
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-img { justify-self: stretch; max-width: none; }
+      .card { grid-column: span 12; }
+      .two { grid-template-columns: 1fr; }
+      .btn { min-width: 0; flex: 1 1 auto; }
+    }
+  
+    /* Writing cards */
+    .posts { display:grid; grid-template-columns: repeat(12, 1fr); gap:1rem; }
+    .post { grid-column: span 6; background: var(--card); border:1px solid var(--border); border-radius: .9rem; padding: 1rem; display:flex; gap:.9rem; align-items:flex-start; }
+    .post img { width: 120px; aspect-ratio: 3/2; object-fit: cover; border-radius: .5rem; border:1px solid var(--border); background: var(--bg-soft); }
+    .post h3 { margin:.1rem 0 .25rem; font-size:1.05rem; }
+    .post p { margin:0; color: var(--muted); }
+
+    /* Embeds */
+    .embed { position: relative; width: 100%; padding-top: 56.25%; border:1px solid var(--border); border-radius: .8rem; overflow:hidden; background: var(--bg-soft); }
+    .embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+    /* Gallery */
+    .gallery { display:grid; grid-template-columns: repeat(12, 1fr); gap: .6rem; }
+    .gallery img { grid-column: span 4; aspect-ratio: 4/3; object-fit: cover; border-radius: .6rem; border:1px solid var(--border); }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Selami Doğan Akansu</h1>
-    </header>
-   <section>
-        <h2>About Me</h2>
+  <header class="site" aria-label="Primary">
+    <nav class="container nav">
+      <a href="#home" aria-label="Home">SDA</a>
+      <div class="links" role="navigation" aria-label="Sections">
+        <a href="#projects">Projects</a>
+        <a href="#publications">Publications</a>
+        <a href="#writing">Writing</a>
+        <a href="#talks">Talks</a>
+        <a href="#photos">Photos</a>
+        <a href="#contact">Contact</a>
+        <button id="mode" class="chip" aria-pressed="false" aria-label="Toggle dark mode">🌗</button>
+      </div>
+    </nav>
+  </header>
 
-        <p>With a passion for both economics and computer science, I am a motivated and versatile professional specializing in finance, artificial intelligence, and data analysis. Currently pursuing a Master's Degree in Economics and Finance at Eberhard Karls University of Tübingen, I hold a Bachelor of Science in Computer Science and a Bachelor of Arts in Management with a Minor in Finance from Sabanci University, Istanbul. Throughout my academic journey, I've had the privilege of being recognized for academic excellence, earning a place on the Dean's High Honor List multiple times. Currently, I am also contributing as a research assistant, furthering my passion for academic inquiry and discovery. My research interests lie at the intersection of finance and technology, with projects ranging from valuing companies using advanced financial models to financial economics with the help of my knowledge in computer science. </p>
+  <main id="home" class="container" role="main">
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="intro-title">
+      <div>
+        <span class="pill">Finance • Software • Research</span>
+        <h1 id="intro-title">Selami Doğan Akansu</h1>
+        <p class="subtitle">Asset pricing & risk • Derivatives • Data science • Python/ML</p>
+        <p class="muted">Economist with a CS background. I build models and tools for markets, study <em>β–γ</em> preferences and rare-disaster risks, and ship production‑quality analyses and apps.</p>
+        <div class="hero-cta">
+          <a class="btn primary" href="/SDA_cv.pdf" target="_blank" rel="noopener">Download CV</a>
+          <a class="btn" href="mailto:sdakansu_49461@gmail.com">Email</a>
+          <a class="btn" href="https://www.linkedin.com/in/selamidoganakansu/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn" href="https://github.com/sdakansu_49461" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+      <figure class="hero-img" aria-label="Featured image">
+        <img loading="lazy" src="VW_sensitivity_sales_growth.png" alt="Sensitivity analysis heatmap" />
+      </figure>
     </section>
-    <section>
-        <h2>Recent Projects</h2>
-        <h3>Discounted Cash Flow (DCF) Valuation of Volkswagen AG</h3>
-        <div class="project">
-            <div class="content">
-                <p>Using several approaches, Volkswagen AG (VW) is valued on January 01, 2024. Weighted Cost of Capital (WACC) approach is performed with an assumption of constant debt ratio over time. Using Adjusted Present Value (APV) with a constant debt amount over time, the result is deviated from the market cap. By adjusting the debt amount over time, the estimated equity value intersected with the market cap of VW. Further, sensitivity analysis is studied on WACC approach and pointed sensitive parameters of the company. Option to wait one year is studied with empirical free cash flows (FCF). Also, Merton model is applied to find the adjusted debt ratio and credit spread with accounting default risk.</p>
-                <p>View <a href="Advanced_Corporate_Finance_Project.pdf" target="_blank">project report</a> and <a href="Regression.nb.html" target="_blank">project codes</a>.</p>
-            </div>
-            <div class="image">
-                <img src="VW_sensitivity_sales_growth.png" alt="Volkswagen AG">
-            </div>
-        </div>
 
-        <p>The valuation of Volkswagen Group through discounted cash flow (DCF) methods, including Adjusted Present Value (APV) and Weighted Average Cost of Capital (WACC), is detailed in this study. It encompasses a three-year short-term forecast and a medium-term outlook, utilizing financial data from the past decade. The APV approach considers Free Cash Flow (FCF) and tax shields discounted separately, resulting in a total company value of €164.05 billion, despite a discrepancy in total equity due to predetermined book values of debt. Conversely, WACC-based valuation yields a total value of €145.316 billion, with an alternative WACC accounting for default probability resulting in a slightly lower valuation. Comparative analysis reveals surprising outcomes, where APV valuation exceeds WACC valuation due to substantial total debt relative to present company value, indicating the need for debt ratio adjustments. Sensitivity analyses explore the impact of parameters such as debt ratio, tax rates, and growth rates on firm value, revealing significant fluctuations. Real option analysis suggests that waiting for VW yields a superior strategy, as it aligns with the firm's current market capitalization. Notably, the study sheds light on Volkswagen's challenges post the NOx emission scandal and applies Merton Model for further financial analysis. Additionally, it provides insights into the company's tax rates and sensitivity to various parameters, essential for comprehensive financial modeling and decision-making.</p>
+    <!-- ABOUT -->
+    <section id="about" aria-labelledby="about-title">
+      <h2 id="about-title">About</h2>
+      <div class="two">
+        <p>Master’s in Economics & Finance (Tübingen). Dual BSc in Computer Science and BA in Management (Sabancı). RA experience and several cross‑disciplinary projects spanning corporate valuation, empirical asset pricing, and ML for OCR.</p>
+        <p class="muted">I enjoy turning messy data and theory into clean, testable code: GMM estimators, Monte Carlo engines, and visualization pipelines — with reproducible repos.</p>
+      </div>
+    </section>
 
-        <div class="vertical-space"></div>
+    <!-- PROJECTS -->
+    <section id="projects" aria-labelledby="proj-title">
+      <h2 id="proj-title">Selected Projects</h2>
+      <div class="grid" id="project-grid">
+        <article class="card" data-tags="finance research">
+          <img src="VW_sensitivity_sales_growth.png" alt="Volkswagen sensitivity analysis" />
+          <div class="pad">
+            <h3>Volkswagen AG — DCF / APV / WACC</h3>
+            <p>Valuation stack incl. tax shields, default-probability WACC, and real option to wait. Sensitivity maps & scenario analysis.</p>
+          </div>
+        </article>
+        <article class="card" data-tags="finance research">
+          <img src="seminar_paper_regression.png" alt="Market returns vs. distance to Wuhan" />
+          <div class="pad">
+            <h3>COVID‑19 Proximity Penalty</h3>
+            <p>Event‑study of market returns vs. distance to Wuhan prior to WHO pandemic declaration.</p>
+          </div>
+        </article>
+        <article class="card" data-tags="finance software">
+          <img src="certificate_monte_carlo.png" alt="Monte Carlo price paths for express certificate" />
+          <div class="pad">
+            <h3>Express Certificate (RDS) — Monte Carlo & PI</h3>
+            <p>65,536‑path GBM engine, Greeks, Nelson–Siegel–Svensson curve fitting, and portfolio insurance tests.</p>
+          </div>
+        </article>
+        <article class="card" data-tags="research finance software">
+          <img src="EAP_objective_function.png" alt="GMM objective surface" />
+          <div class="pad">
+            <h3>Empirical Asset Pricing — GMM β, γ</h3>
+            <p>Grid‑search + two‑stage GMM for CCAPM; SDF vs. consumption growth diagnostics.</p>
+          </div>
+        </article>
+        <article class="card" data-tags="software research">
+          <img src="prepublished_paper.png" alt="AKIS Ottoman OCR figure" />
+          <div class="pad">
+            <h3>AKIS — Ottoman OCR to Modern Turkish</h3>
+            <p>CRNN + Word Beam Search; 2.25% CER / 6.42% WER with lexicon; 260K‑word general lexicon eval.</p>
+          </div>
+        </article>
+      </div>
+    </section>
 
-        <h3>Proximity Penalty of COVID-19 "Outbreak" on Stock Markets</h3>
-        <div class="project1">
-            <div class="image">
-                <img src="seminar_paper_regression.png" alt="Seminar Paper Regression">
-            </div>
-            <div class="content">
-                <p>The COVID-19 pandemic had a significant impact on global stock markets, particularly during the early stages before its official declaration as a pandemic by the World Health Organization (WHO). As the outbreak rapidly spread, the potential for spillover effects became a substantial risk for financial markets. This paper investigates the effect of COVID-19 on stock market returns, specifically focusing on the geographical proximity to the epicenter of the outbreak, Wuhan. By examining the relationship between distance to Wuhan and stock market returns, this study aims to shed light on the influence of geographical proximity on the financial implications of the pandemic.</p>
-                <p>View <a href="seminar_paper.pdf" target="_blank">project report</a> and <a href="Regression.nb.html" target="_blank">project codes</a>.</p>
-            </div>
-        </div>
+    <!-- CONTACT -->
+    <section id="publications" aria-labelledby="pubs-title">
+      <h2 id="pubs-title">Publications & Working Papers</h2>
+      <ul>
+        <li><b>AKIS — Ottoman OCR to Modern Turkish</b> (preprint). CRNN + Word Beam Search; evaluation with 260K-word lexicon. <a href="https://assets.researchsquare.com/files/rs-2273629/v1_covered.pdf?c=1679310899" target="_blank" rel="noopener">PDF</a></li>
+        <li><b>Empirical Asset Pricing — GMM β, γ</b> (assignment report). <a href="Dogan_Andi_EAP_Final_3.pdf" target="_blank" rel="noopener">PDF</a></li>
+      </ul>
+    </section>
 
-        <div class="vertical-space"></div>
+    <section id="writing" aria-labelledby="writing-title">
+      <h2 id="writing-title">Writing (Medium)</h2>
+      <div id="medium-feed" class="posts" aria-live="polite"></div>
+      <p class="muted" style="margin-top:.6rem">This list updates automatically from Medium.</p>
+    </section>
 
-        <div class="project1">
-            <h3>Valuation of Express Certificate on Royal Dutch Shell Company</h3>
-            <div class="image">
-                <img src="certificate_monte_carlo.png" alt="Express Certificate Valuation - Monte Carlo">
-            </div>
-            <div class="content">
-                <p>The valuation of an express certificate on Royal Dutch Shell Company involved Monte Carlo Simulation and Portfolio Insurance strategies. Using Geometric Brownian Motion with 65,536 observations, probable pricing paths of the underlying were simulated, resulting in an estimated certificate price of €112.49. Figures depicted the estimated prices of the certificate, historic prices of the underlying stock, and the comparison between actual and estimated prices. Sensitivity and stress scenario analyses were conducted to measure the effectiveness of put option fractions in portfolios, revealing significant average estimated returns under different conditions. Risk management strategies, such as including put options in portfolios, were explored to manage tail risk. Additionally, the Nelson-Siegel-Svennson method was employed to estimate the risk-free rate, and various derivative pricing methods were applied to analyze delta, gamma, and vega. The study provided insights into product characteristics, early termination scenarios, and risk management practices in the context of financial derivatives.</p>
-                <p>View <a href="express_certificate_valuation_poster.pdf" target="_blank">project poster</a> and <a href="Regression.nb.html" target="_blank">code file</a></p>
-            </div>
-        </div>
-
-        <div class="vertical-space"></div>
-
-        <h3>Empirical Asset Pricing Assignment 3</h3>
-        <div class="project">
-            <div class="image">
-                <img src="EAP_objective_function.png" alt="Empirical Asset Pricing - Objective Function">
-            </div>
-            <div class="content">
-                
-                <p>The study presents three different approaches to applying the GMM in order to estimate the two parameters (β and γ) of the Consumption-Based Asset Pricing Equation (BAPE), which employs a power utility function and gross returns. The three approaches that aim to solve the minimization problem of the Objective-Based GMM are:</p>
-
-                <ol>
-                    <li>Performing a grid search that relies on a fixed set of values for β and γ.</li>
-                    <li>First-stage GMM.</li>
-                    <li>Second-stage GMM.</li>
-                </ol>
-            </div>
-        </div>
-
-        <div class="vertical-space"></div>
-
-        <div class = "project">
-            <div class = "content">
-                <p>Next is an assessment of how well each method fits the data, including computing the correlation between the Stochastic Discount Factor (SDF) of each method and the consumption growth. Different approaches include plotting model-implied mean returns against the market returns and conducting hypothesis testing for the most conventional values for β = 1 and γ = 10, and commenting on the spread range of the confidence interval, especially for γ.</p>
-                <p>View <a href="Dogan_Andi_EAP_Final_3.pdf" target="_blank">project report</a> and <a href="" target="_blank">code files</a></p>
-            </div>
-            <div class="image">
-                <img src="SDF_and_consumption_growth.png" alt="SDF and Consumption Growth">
-            </div>
-        </div>
-
-        <div class="vertical-space"></div>
-
-        <h2>Computer Science Projects</h2>
-        <h3>AKIS - Deep Learning Transcription Tool for Ottoman Writings</h3>
-        <div class="container">
-            <div class="text-block">
-                <p>We propose an automatic recognition system for printed Ottoman documents which transcribes Ottoman texts directly to the modern Turkish script. We evaluated three decoding strategies including the Word Beam Search decoder that allows to use a recognition lexicon and n-gram statistics during the decoding phase. The system achieves 2.25% character error rate and 6.42% word error rate on a test set of 1.4K samples, using the test set transcriptions as the recogni- tion lexicon. Using a general purpose, large lexicon of the Ottoman era (260K words and 77% test coverage), the performance is measured as 3.68% character error rate and 16.61% word error rate.</p>
-                <p>View <a href="https://dhlab.sabanciuniv.edu/en/akis-osmanlica-transkripsiyon-araci" target="_blank">project website</a>, <a href="https://dh-ottoman.univie.ac.at/fileadmin/user_upload/k_dh_ottoman/DH-Akis.pdf" target="_blank">poster</a> and <a href="https://assets.researchsquare.com/files/rs-2273629/v1_covered.pdf?c=1679310899" target="_blank">prepublished paper</a> </p>
-            </div>
-            <div class="image-container" id="image-container">
-                <img src="prepublished_paper.png" alt="Prepublished" id="dynamic-image">
-            </div>
-        </div>
-
-        <div class="vertical-space"></div>
-
-        <!-- Add more projects... -->
-        <h2>Undergrad Projects and Poster Presentations</h2>
-
-        <h3>Improving Deep Kinase Zero Shot Learning Program (DeepKinZero) PURE Project</h3>
+    <section id="talks" aria-labelledby="talks-title">
+      <h2 id="talks-title">Talks & Presentations</h2>
+      <div class="two">
         <div>
-            <p>
-            I led improvements to DeepKinZero, enhancing its predictive capabilities by refining similarity calculations based on cellular component features. Utilizing Gene Ontology IDs and protein location data, I applied the Wang and BMA methods to measure semantic similarity between proteins, resulting in a significant boost in DeepKinZero's performance. Through thorough analysis and testing, I confirmed the reliability of the implemented features and spearheaded the implementation of new features using TensorFlow. </p>
-            <p>View <a href="https://pure.sabanciuniv.edu/project/2898/improving-deepkinzero" target="_blank">poster</a> </p>
+          <div class="embed">
+            <iframe src="https://docs.google.com/presentation/d/e/2PACX-FAKE-ID/embed?start=false&loop=false&delayms=3000" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <p class="muted">Embed your Google Slides (File → Publish to the web → Embed) or link PDFs directly.</p>
         </div>
-        <h3>Automata and Finite State Machines - PURE Project</h3>
-        <div class="project1">
-            <p>Aim of this project is to decrease the complexity (from exponential to polynomial) of unique input-output sequence of finite state machines using synchronizing heuristic.</p>
-            <p>View <a href="https://pure.sabanciuniv.edu/sites/pure.sabanciuniv.edu/files/poster/pure_poster__0.pdf" target="_blank">poster</a> </p>
+        <div>
+          <ul>
+            <li>Express Certificate Valuation — poster. <a href="express_certificate_valuation_poster.pdf" target="_blank" rel="noopener">PDF</a></li>
+            <li>AKIS OCR — conference poster & demo. <a href="https://dh-ottoman.univie.ac.at/fileadmin/user_upload/k_dh_ottoman/DH-Akis.pdf" target="_blank" rel="noopener">Poster</a></li>
+          </ul>
         </div>
-
+      </div>
     </section>
-    <!-- Add more sections for awards, publications, etc. -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <style> 
-        /* Your existing styles here */
-        .social-icons {
-            display: flex;
-            justify-content: center; /* Align items horizontally at the center */
-            margin-top: 10px;
-        }
-        .social-icons a {
-            color: #333;
-            margin: 0 10px;
-            font-size: 24px;
-        }
-    </style>
-    <footer>
-        <div class="social-icons">
-            <a href="https://github.com/sdakansu"><i class="fab fa-github"></i></a>
-            <a href="mailto:sdakansu@gmail.com"><i class="fas fa-envelope"></i></a>
-            <a href="https://www.linkedin.com/in/selamidoganakansu/"><i class="fab fa-linkedin"></i></a>
-            <a href="https://medium.com/your-medium-username" target="_blank"><i class="fab fa-medium"></i></a>
-            <a href="https://www.instagram.com/sdakansu"><i class="fab fa-instagram"></i></a>
-            <a href="SDA_cv.pdf" target="_blank"><i class="fas fa-file-pdf"></i></a>
-        </div>
-    </footer>
+
+    <section id="photos" aria-labelledby="photos-title">
+      <h2 id="photos-title">Photos</h2>
+      <div class="gallery">
+        <img src="/photos/p1.jpg" alt="At a seminar" />
+        <img src="/photos/p2.jpg" alt="Workstation" />
+        <img src="/photos/p3.jpg" alt="Travel" />
+        <img src="/photos/p4.jpg" alt="Campus" />
+        <img src="/photos/p5.jpg" alt="Conference" />
+        <img src="/photos/p6.jpg" alt="Books" />
+      </div>
+      <p class="muted" style="margin-top:.6rem">Keep it subtle and professional; 6–8 photos is plenty.</p>
+    </section>
+
+    <section id="contact" aria-labelledby="contact-title">
+      <h2 id="contact-title">Contact</h2>
+      <p>Email: <a href="mailto:sdakansu_49461@gmail.com">sdakansu_49461@gmail.com</a> • LinkedIn: <a href="https://www.linkedin.com/in/selamidoganakansu/" target="_blank" rel="noopener">/in/selamidoganakansu</a> • Medium: <a href="https://medium.com/@sdakansu_49461" target="_blank" rel="noopener">@sdakansu_49461</a></p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© <span id="year"></span> Selami Doğan Akansu</p>
+    </div>
+  </footer>
+
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // THEME: system-first, manual override cycles system → dark → light → system; persists in localStorage
+    const root = document.documentElement;
+    const modeBtn = document.getElementById('mode');
+    const mqDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+    function applyTheme(theme){ // 'dark' | 'light' | null (system)
+      if (theme === 'dark' || theme === 'light') {
+        root.setAttribute('data-theme', theme);
+      } else {
+        root.removeAttribute('data-theme'); // system
+      }
+      const effective = theme || (mqDark.matches ? 'dark' : 'light');
+      modeBtn?.setAttribute('aria-pressed', String(effective === 'dark'));
+    }
+
+    const savedTheme = localStorage.getItem('theme');
+    applyTheme(savedTheme);
+
+    mqDark.addEventListener?.('change', () => {
+      if (!localStorage.getItem('theme')) applyTheme(null); // follow system if no manual choice
+    });
+
+    modeBtn?.addEventListener('click', () => {
+      const current = root.getAttribute('data-theme'); // null|'dark'|'light'
+      const next = current === null ? 'dark' : (current === 'dark' ? 'light' : null);
+      if (next) localStorage.setItem('theme', next); else localStorage.removeItem('theme');
+      applyTheme(next);
+    });
+
+    // ==== Medium Feed via RSS -> JSON (client-side) ====
+    // Uses rss2json (public) to bypass CORS on Medium's RSS. For reliability, you can proxy this later.
+    const MEDIUM_HANDLE = 'sdakansu_49461'; // <-- change if needed
+    const MAX_POSTS = 6;
+    const feedEl = document.getElementById('medium-feed');
+
+    function extractImgFromHTML(html) {
+      try {
+        const doc = new DOMParser().parseFromString(html, 'text/html');
+        const img = doc.querySelector('img');
+        return img ? img.getAttribute('src') : '';
+      } catch { return ''; }
+    }
+
+    async function loadMedium() {
+      try {
+        const rssUrl = `https://medium.com/feed/@${MEDIUM_HANDLE}`;
+        const api = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`;
+        const res = await fetch(api);
+        if (!res.ok) throw new Error('Feed request failed');
+        const data = await res.json();
+        const items = (data.items || []).filter(it => it.title && it.link).slice(0, MAX_POSTS);
+        if (!items.length) throw new Error('No items');
+
+        const frag = document.createDocumentFragment();
+        items.forEach(it => {
+          const a = document.createElement('article');
+          a.className = 'post';
+          // Prefer enclosure/thumbnail, else parse first <img> from content
+          let thumb = it.thumbnail || (it.enclosure && it.enclosure.link) || '';
+          if (!thumb && it.content) thumb = extractImgFromHTML(it.content);
+          // Medium images sometimes need https fix
+          if (thumb && thumb.startsWith('//')) thumb = 'https:' + thumb;
+          a.innerHTML = `
+            ${thumb ? `<img src="${thumb}" alt="${it.title.replace(/"/g,'&quot;')}" onerror="this.style.display='none'" />` : ''}
+            <div>
+              <h3 style="margin:0 0 .25rem;font-size:1.05rem"><a href="${it.link}" target="_blank" rel="noopener">${it.title}</a></h3>
+              <p>${new Date(it.pubDate).toLocaleDateString(undefined, {year:'numeric', month:'short', day:'2-digit'})} — ${it.categories?.slice(0,2).join(' • ') || 'Medium'}</p>
+            </div>`;
+          frag.appendChild(a);
+        });
+        feedEl.textContent = '';
+        feedEl.appendChild(frag);
+      } catch (e) {
+        feedEl.innerHTML = `<p class="muted">Couldn’t load Medium posts right now. <a href="https://medium.com/@${MEDIUM_HANDLE}" target="_blank" rel="noopener">See all on Medium →</a></p>`;
+      }
+    }
+    loadMedium();
+  </script>
 </body>
 </html>
