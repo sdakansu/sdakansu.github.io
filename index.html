@@ -56,12 +56,29 @@
     .subtitle { color: var(--muted); margin: 0 0 1.2rem; }
     .pill { display:inline-block; padding:.25rem .6rem; border:1px solid var(--border); border-radius: 999px; font-size:.85rem; color: var(--muted); margin-right:.5rem }
     .hero-cta { display:flex; gap:.75rem; flex-wrap: wrap; }
-    .hero-img { border-radius: 1rem; overflow: hidden; border:1px solid var(--border); background: var(--card); aspect-ratio: 4 / 3; width: 100%; max-width: 420px; justify-self: end; }
-    .hero-img img { width:100%; height:100%; object-fit: contain; }
+
+
+    .hero-img {
+      border-radius: 1rem;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--card);
+      aspect-ratio: 3 / 4;     /* portrait style */
+      max-width: 320px;        /* narrower, more professional */
+      justify-self: end;
+    }
+
+    .hero-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;       /* fills the frame neatly */
+    }
 
     /* Sections */
     section { padding: 2.2rem 0; }
+    .block { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.2rem; box-shadow: var(--shadow); }
     section h2 { font-size: 1.6rem; margin: 0 0 1rem; letter-spacing:.2px }
+    .block h2 { margin-top: 0; }
     p { margin: 0 0 .85rem; }
     .muted { color: var(--muted); }
 
@@ -70,10 +87,15 @@
     .card { grid-column: span 4; background: var(--card); border:1px solid var(--border); border-radius: 1rem; overflow:hidden; box-shadow: var(--shadow); display:flex; flex-direction:column; height:100%; transition: transform .12s ease, box-shadow .12s ease; }
     .card:hover { transform: translateY(-2px); box-shadow: 0 14px 36px rgba(0,0,0,.18); }
     .card img { width: 100%; aspect-ratio: 16 / 9; height: auto; object-fit: cover; background: var(--bg-soft); }
-    .card .pad { padding: 1rem; display:flex; flex-direction:column; flex:1; }
+    .card .pad { padding: .8rem; display:flex; flex-direction:column; flex:1; }
+    .card h3 { font-size: 1.02rem; margin: 0 0 .35rem; }
+    .card p { font-size: .95rem; }
 
     /* Two-col sections */
     .two { display:grid; grid-template-columns: 1fr 1fr; gap:1.2rem; align-items: start; }
+
+    /* Section blocks */
+    section { border: 1px solid var(--border); border-radius: 1rem; padding: 2rem; margin-bottom: 2rem; background: var(--bg-soft); }
 
     /* Footer */
     footer { border-top: 1px solid var(--border); padding: 2rem 0; color: var(--muted); text-align:center }
@@ -121,7 +143,7 @@
 
   <main id="home" class="container" role="main">
     <!-- HERO -->
-    <section class="hero" aria-labelledby="intro-title">
+    <section class="block hero" aria-labelledby="intro-title">
       <div>
         <span class="pill">Finance • Software • Research</span>
         <h1 id="intro-title">Selami Doğan Akansu</h1>
@@ -135,13 +157,13 @@
         </div>
       </div>
       <figure class="hero-img" aria-label="Featured image">
-        <img loading="lazy" src="VW_sensitivity_sales_growth.png" alt="Sensitivity analysis heatmap" />
+        <img loading="lazy" src="PP1.jpeg" />
       </figure>
     </section>
 
     <!-- ABOUT -->
-    <section id="about" aria-labelledby="about-title">
-      <h2 id="about-title">About</h2>
+    <section class="block" id="about" aria-labelledby="about-title">
+      <h2 id="about-title">About Me</h2>
       <div class="two">
         <p>Master’s in Economics & Finance (Tübingen). Dual BSc in Computer Science and BA in Management (Sabancı). RA experience and several cross‑disciplinary projects spanning corporate valuation, empirical asset pricing, and ML for OCR.</p>
         <p class="muted">I enjoy turning messy data and theory into clean, testable code: GMM estimators, Monte Carlo engines, and visualization pipelines — with reproducible repos.</p>
@@ -149,7 +171,7 @@
     </section>
 
     <!-- PROJECTS -->
-    <section id="projects" aria-labelledby="proj-title">
+    <section class="block" id="projects" aria-labelledby="proj-title">
       <h2 id="proj-title">Selected Projects</h2>
       <div class="grid" id="project-grid">
         <article class="card" data-tags="finance research">
@@ -191,36 +213,38 @@
     </section>
 
     <!-- CONTACT -->
-    <section id="publications" aria-labelledby="pubs-title">
+    <section class="block" id="publications" aria-labelledby="pubs-title">
       <h2 id="pubs-title">Publications & Working Papers</h2>
       <ul>
         <li><b>AKIS — Ottoman OCR to Modern Turkish</b> (preprint). CRNN + Word Beam Search; evaluation with 260K-word lexicon. <a href="https://assets.researchsquare.com/files/rs-2273629/v1_covered.pdf?c=1679310899" target="_blank" rel="noopener">PDF</a></li>
         <li><b>Empirical Asset Pricing — GMM β, γ</b> (assignment report). <a href="Dogan_Andi_EAP_Final_3.pdf" target="_blank" rel="noopener">PDF</a></li>
       </ul>
-      <ul>
-        <li>Express Certificate Valuation — poster. <a href="express_certificate_valuation_poster.pdf" target="_blank" rel="noopener">PDF</a></li>
-        <li>AKIS OCR — conference poster & demo. <a href="https://dh-ottoman.univie.ac.at/fileadmin/user_upload/k_dh_ottoman/DH-Akis.pdf" target="_blank" rel="noopener">Poster</a></li>
-      </ul>
     </section>
 
-    <section id="writing" aria-labelledby="writing-title">
+    <section class="block" id="writing" aria-labelledby="writing-title">
       <h2 id="writing-title">Medium</h2>
       <div id="medium-feed" class="posts" aria-live="polite"></div>
+      <p class="muted" style="margin-top:.6rem"></p>
     </section>
 
-    <section id="talks" aria-labelledby="talks-title">
+    <section class="block" id="talks" aria-labelledby="talks-title">
       <h2 id="talks-title">Talks & Presentations</h2>
       <div class="two">
         <div>
-          <div class="embed">
-            <iframe src="https://drive.google.com/file/d/1U86QniJnXgo0hOvedFhWuEZBll3Ftq7e/view?usp=sharing" allowfullscreen loading="lazy"></iframe>
-          </div>
-          <p class="muted">Embed your Google Slides (File → Publish to the web → Embed) or link PDFs directly.</p>
+        <div class="embed">
+          <iframe src="Sample Presentation.pdf" title="My Slides"></iframe>
+        </div>
+        </div>
+        <div>
+          <ul>
+            <li>Express Certificate Valuation — poster. <a href="express_certificate_valuation_poster.pdf" target="_blank" rel="noopener">PDF</a></li>
+            <li>AKIS OCR — conference poster & demo. <a href="https://dh-ottoman.univie.ac.at/fileadmin/user_upload/k_dh_ottoman/DH-Akis.pdf" target="_blank" rel="noopener">Poster</a></li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <section id="photos" aria-labelledby="photos-title">
+    <section class="block" id="photos" aria-labelledby="photos-title">
       <h2 id="photos-title">Photos</h2>
       <div class="gallery">
         <img src="/photos/p1.jpg" alt="At a seminar" />
@@ -230,9 +254,10 @@
         <img src="/photos/p5.jpg" alt="Conference" />
         <img src="/photos/p6.jpg" alt="Books" />
       </div>
+      <p class="muted" style="margin-top:.6rem">Keep it subtle and professional; 6–8 photos is plenty.</p>
     </section>
 
-    <section id="contact" aria-labelledby="contact-title">
+    <section class="block" id="contact" aria-labelledby="contact-title">
       <h2 id="contact-title">Contact</h2>
       <p>Email: <a href="mailto:sdakansu@gmail.com">sdakansu@gmail.com</a> • LinkedIn: <a href="https://www.linkedin.com/in/selamidoganakansu/" target="_blank" rel="noopener">/in/selamidoganakansu</a> • Medium: <a href="https://medium.com/@sdakansu_49461" target="_blank" rel="noopener">@sdakansu_49461</a></p>
     </section>
