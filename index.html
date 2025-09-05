@@ -91,6 +91,18 @@
     .card h3 { font-size: 1.02rem; margin: 0 0 .35rem; }
     .card p { font-size: .95rem; }
 
+    /* make card-anchors behave like your .card blocks */
+    a.card { 
+      display: flex; flex-direction: column; height: 100%;
+      background: var(--card); border:1px solid var(--border);
+      border-radius: 1rem; overflow: hidden; box-shadow: var(--shadow);
+      transition: transform .12s ease, box-shadow .12s ease;
+      text-decoration: none; color: inherit; 
+    }
+    a.card:hover { transform: translateY(-2px); box-shadow: 0 14px 36px rgba(0,0,0,.18); }
+    a.card:focus-visible { outline: 3px solid var(--brand); outline-offset: 2px; }
+
+
     /* Two-col sections */
     .two { display:grid; grid-template-columns: 1fr 1fr; gap:1.2rem; align-items: start; }
 
@@ -123,6 +135,13 @@
     /* Gallery */
     .gallery { display:grid; grid-template-columns: repeat(12, 1fr); gap: .6rem; }
     .gallery img { grid-column: span 4; aspect-ratio: 4/3; object-fit: cover; border-radius: .6rem; border:1px solid var(--border); }
+
+    /* Margins for Publications */
+    #publications li {
+      margin-bottom: 1.2rem;
+      line-height: 1.5;
+    }
+
   </style>
 </head>
 <body>
@@ -174,53 +193,75 @@
     <section class="block" id="projects" aria-labelledby="proj-title">
       <h2 id="proj-title">Selected Projects</h2>
       <div class="grid" id="project-grid">
-        <article class="card" data-tags="finance research">
+        <a class="card" href="Advanced_Corporate_Finance_Project.pdf" target="_blank" rel="noopener">
           <img src="VW_sensitivity_sales_growth.png" alt="Volkswagen sensitivity analysis" />
           <div class="pad">
             <h3>Volkswagen AG — DCF / APV / WACC</h3>
             <p>Valuation stack incl. tax shields, default-probability WACC, and real option to wait. Sensitivity maps & scenario analysis.</p>
           </div>
-        </article>
-        <article class="card" data-tags="finance research">
+        </a>
+      
+        <a class="card" href="seminar_paper.pdf" target="_blank" rel="noopener">
           <img src="seminar_paper_regression.png" alt="Market returns vs. distance to Wuhan" />
           <div class="pad">
-            <h3>COVID‑19 Proximity Penalty</h3>
-            <p>Event‑study of market returns vs. distance to Wuhan prior to WHO pandemic declaration.</p>
+            <h3>COVID-19 Proximity Penalty</h3>
+            <p>Event-study of market returns vs. distance to Wuhan prior to WHO pandemic declaration.</p>
           </div>
-        </article>
-        <article class="card" data-tags="finance software">
+        </a>
+      
+        <a class="card" href="express_certificate_valuation_poster.pdf" target="_blank" rel="noopener">
           <img src="certificate_monte_carlo.png" alt="Monte Carlo price paths for express certificate" />
           <div class="pad">
             <h3>Express Certificate (RDS) — Monte Carlo & PI</h3>
-            <p>65,536‑path GBM engine, Greeks, Nelson–Siegel–Svensson curve fitting, and portfolio insurance tests.</p>
+            <p>65,536-path GBM engine, Greeks, Nelson–Siegel–Svensson curve fitting, and portfolio insurance tests.</p>
           </div>
-        </article>
-        <article class="card" data-tags="research finance software">
+        </a>
+      
+        <a class="card" href="Dogan_Andi_EAP_Final_3.pdf" target="_blank" rel="noopener">
           <img src="EAP_objective_function.png" alt="GMM objective surface" />
           <div class="pad">
             <h3>Empirical Asset Pricing — GMM β, γ</h3>
-            <p>Grid‑search + two‑stage GMM for CCAPM; SDF vs. consumption growth diagnostics.</p>
+            <p>Grid-search + two-stage GMM for CCAPM; SDF vs. consumption growth diagnostics.</p>
           </div>
-        </article>
-        <article class="card" data-tags="software research">
+        </a>
+      
+        <a class="card" href="https://link.springer.com/chapter/10.1007/978-3-031-70442-0_26" target="_blank" rel="noopener">
           <img src="prepublished_paper.png" alt="AKIS Ottoman OCR figure" />
           <div class="pad">
             <h3>AKIS — Ottoman OCR to Modern Turkish</h3>
-            <p>CRNN + Word Beam Search; 2.25% CER / 6.42% WER with lexicon; 260K‑word general lexicon eval.</p>
+            <p>CRNN + Word Beam Search; 2.25% CER / 6.42% WER with lexicon; 260K-word general lexicon eval.</p>
           </div>
-        </article>
+        </a>
       </div>
     </section>
 
-    <!-- CONTACT -->
+    <!-- Publications -->
     <section class="block" id="publications" aria-labelledby="pubs-title">
-      <h2 id="pubs-title">Publications & Working Papers</h2>
+      <h2 id="pubs-title">Publications</h2>
       <ul>
-        <li><b>AKIS — Ottoman OCR to Modern Turkish</b> (preprint). CRNN + Word Beam Search; evaluation with 260K-word lexicon. <a href="https://assets.researchsquare.com/files/rs-2273629/v1_covered.pdf?c=1679310899" target="_blank" rel="noopener">PDF</a></li>
-        <li><b>Empirical Asset Pricing — GMM β, γ</b> (assignment report). <a href="Dogan_Andi_EAP_Final_3.pdf" target="_blank" rel="noopener">PDF</a></li>
-        <li>Express Certificate Valuation — poster. <a href="express_certificate_valuation_poster.pdf" target="_blank" rel="noopener">PDF</a></li>
+        <li>
+          <b><a href="https://link.springer.com/chapter/10.1007/978-3-031-70442-0_26" target="_blank" rel="noopener">
+            Automatic transcription of Ottoman documents using deep learning
+          </a></b><br>
+          <i>International Workshop on Document Analysis Systems (DAS)</i>, 2024.
+        </li>
+        <li>
+          <b><a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Jp_V2s4AAAAJ&citation_for_view=Jp_V2s4AAAAJ:d1gkVwhDpl0C" target="_blank" rel="noopener">
+            USING SYNCHRONIZING HEURISTIC FOR GENERATING UIO SEQUENCES
+          </a></b>
+        </li>
+        <li>
+          <b><a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Jp_V2s4AAAAJ&citation_for_view=Jp_V2s4AAAAJ:u5HHmVD_uO8C" target="_blank" rel="noopener">
+            Improving DeepKinZero
+          </a></b>
+        </li>
       </ul>
+      <p class="muted" style="margin-top:.5rem">
+        Full list on <a href="https://scholar.google.com/citations?user=Jp_V2s4AAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>.
+      </p>
     </section>
+    
+    
 
     <section class="block" id="writing" aria-labelledby="writing-title">
       <h2 id="writing-title">Medium</h2>
